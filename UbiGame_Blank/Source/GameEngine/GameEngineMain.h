@@ -10,6 +10,7 @@
 #include "GameEngine/EntitySystem/Entity.h"
 #include "GameEngine/EntitySystem/Components/RenderComponent.h"
 
+
 namespace GameEngine
 {
     class GameEngineMain
@@ -33,10 +34,15 @@ namespace GameEngine
         void RefreshEntityTag(Entity* entity);
         void RemoveEntityTagFromMap(Entity* entity, std::string tag);
 
-        std::vector<Entity*> GetEntitiesByTag(std::string tag);
+        std::vector<Entity*> GetEntitiesByTag(const std::string &tag);
 
         void OnInitialised();
         bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
+
+        static float WINDOW_HEIGHT;
+        static float WINDOW_WIDTH;
+
+        Game::GameBoard *GetGameBoard() const { return m_gameBoard; }
 
     private:
         GameEngineMain();
@@ -45,12 +51,10 @@ namespace GameEngine
 
         void AddPendingEntities();
         void RemovePendingEntities();
+        void ProcessInput();
         void UpdateWindowEvents();
         void UpdateEntities();
         void RenderEntities();
-
-        static float WINDOW_HEIGHT;
-        static float WINDOW_WIDTH;
 
         static GameEngineMain* sm_instance;
         static sf::Clock	   sm_deltaTimeClock;

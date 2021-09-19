@@ -165,6 +165,7 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\GameEngine\Util\InputManager.cpp" />
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\ButtonComponent.cpp" />
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\TextRenderComponent.cpp" />
     <ClCompile Include="Source\GameEngine\Util\ButtonManager.cpp" />
@@ -178,6 +179,19 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.cpp" />
     <ClCompile Include="Source\GameEngine\Util\CollisionManager.cpp" />
     <ClCompile Include="Source\GameEngine\Util\SoundManager.cpp" />
+    <ClCompile Include="Source\Game\Components\AttackComponent\HealthComponent.cpp" />
+    <ClCompile Include="Source\Game\Components\InputComponent.cpp" />
+    <ClCompile Include="Source\Game\Components\MovementComponent.cpp" />
+    <ClCompile Include="Source\Game\Components\AttackComponent\ShootingComponent.cpp" />
+    <ClCompile Include="Source\Game\Entities\Attack\Bullet.cpp" />
+    <ClCompile Include="Source\Game\Entities\Attack\HealthbarFill.cpp" />
+    <ClCompile Include="Source\Game\Entities\Attack\Heathbar.cpp" />
+    <ClCompile Include="Source\Game\Entities\Attack\Laser.cpp" />
+    <ClCompile Include="Source\Game\Entities\Attack\Tower.cpp" />
+    <ClCompile Include="Source\Game\Entities\Enemy.cpp" />
+    <ClCompile Include="Source\Game\Entities\Pathfinding\World.cpp" />
+    <ClCompile Include="Source\Game\Entities\Player.cpp" />
+    <ClCompile Include="Source\Game\Entities\PowerUp\Gear.cpp" />
     <ClCompile Include="Source\Game\GameBoard.cpp" />
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\RenderComponent.cpp" />
     <ClCompile Include="Source\GameEngine\EntitySystem\Component.cpp" />
@@ -188,6 +202,7 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\GameEngine\Util\InputManager.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\ButtonComponent.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\TextRenderComponent.h" />
     <ClInclude Include="Source\GameEngine\Util\ButtonManager.h" />
@@ -201,6 +216,19 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\CollidableComponent.h" />
     <ClInclude Include="Source\GameEngine\Util\CollisionManager.h" />
     <ClInclude Include="Source\GameEngine\Util\SoundManager.h" />
+    <ClInclude Include="Source\Game\Components\AttackComponent\HealthComponent.h" />
+    <ClInclude Include="Source\Game\Components\InputComponent.h" />
+    <ClInclude Include="Source\Game\Components\MovementComponent.h" />
+    <ClInclude Include="Source\Game\Components\AttackComponent\ShootingComponent.h" />
+    <ClInclude Include="Source\Game\Entities\Attack\Bullet.h" />
+    <ClInclude Include="Source\Game\Entities\Attack\Healthbar.h" />
+    <ClInclude Include="Source\Game\Entities\Attack\HealthbarFill.h" />
+    <ClInclude Include="Source\Game\Entities\Attack\Laser.h" />
+    <ClInclude Include="Source\Game\Entities\Attack\Tower.h" />
+    <ClInclude Include="Source\Game\Entities\Enemy.h" />
+    <ClInclude Include="Source\Game\Entities\Pathfinding\World.h" />
+    <ClInclude Include="Source\Game\Entities\Player.h" />
+    <ClInclude Include="Source\Game\Entities\PowerUp\Gear.h" />
     <ClInclude Include="Source\Game\GameBoard.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\RenderComponent.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Component.h" />

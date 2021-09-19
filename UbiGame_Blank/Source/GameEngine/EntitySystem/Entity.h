@@ -21,7 +21,7 @@ namespace GameEngine
         std::string GetEntityTag() const;
         bool HasEntityTag() const;
 
-        virtual void Update();
+        void Update();
 
         //Base entity params
         sf::Vector2f GetPos() const;
@@ -87,6 +87,8 @@ namespace GameEngine
             return newComponent;
         }
 
+        bool IsActivated() const { return m_isActivated; }
+
     protected:
         void DestroyComponents();
 
@@ -102,5 +104,11 @@ namespace GameEngine
         float				   m_localRotOffset;
 
         std::optional<std::string> m_entityTag;
+
+        bool m_isActivated = true;
+
+    private:
+        virtual void EntityUpdate() {};
     };
+
 }

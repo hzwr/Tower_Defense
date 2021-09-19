@@ -17,6 +17,31 @@ namespace Game
 
 		void Update();		
 		bool IsGameOver() { return false; }
+
+		void AwardGear() { m_money += 5; }
+		
+		//TODO: no time now. make this private later!
+		int m_score = 0;
+		int m_money = 15;
+
+	private:
+		void CreateBackGround();
+		void CreateGameOverBackGround();
+
+		GameEngine::Entity *m_backGround;
+
+		float m_enemyGenCooldown = 2.0f;
+		GameEngine::Entity *m_text = nullptr;
+		GameEngine::Entity *m_scoreText = nullptr;
+		GameEngine::Entity *m_finalScore = nullptr;
+
+		class Player *m_player = nullptr;
+		float timeElapsed = 0.0f;
+
+		bool is_gameOver = false;
+
+
+
 	};
 }
 

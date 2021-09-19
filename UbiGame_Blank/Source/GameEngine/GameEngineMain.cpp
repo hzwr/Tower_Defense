@@ -9,11 +9,14 @@
 #include "Util/AnimationManager.h"
 #include "Util/ButtonManager.h"
 #include "Util/CameraManager.h"
+#include "Util/InputManager.h"
+#include "Util/CollisionManager.h"
+
 
 using namespace GameEngine;
 
-float GameEngineMain::WINDOW_HEIGHT = 500;
-float GameEngineMain::WINDOW_WIDTH = 500;
+float GameEngineMain::WINDOW_HEIGHT = 800;
+float GameEngineMain::WINDOW_WIDTH = 1000;
 //Nullptr init for singleton class
 GameEngineMain* GameEngineMain::sm_instance = nullptr;
 sf::Clock		GameEngineMain::sm_deltaTimeClock;
@@ -136,7 +139,7 @@ void GameEngineMain::RemoveEntityTagFromMap(Entity* entity, std::string tag)
 }
 
 
-std::vector<Entity*> GameEngineMain::GetEntitiesByTag(std::string tag)
+std::vector<Entity*> GameEngineMain::GetEntitiesByTag(const std::string &tag)
 {
     auto it = m_entityTagMap.find(tag);
     if (it == m_entityTagMap.end())
@@ -146,6 +149,14 @@ std::vector<Entity*> GameEngineMain::GetEntitiesByTag(std::string tag)
     }
 
     return it->second;
+}
+
+void GameEngineMain::ProcessInput()
+{
+    GameEngine::InputManager::GetInstance()->BeforeUpdate();	// take a snapshot of the current input devices' state
+    UpdateWindowEvents();	// poll windows event
+    GameEngine::InputManager::GetInstance()->Update();
+
 }
 
 
@@ -160,7 +171,8 @@ void GameEngineMain::Update()
 
     RemovePendingEntities();
 
-    UpdateWindowEvents();
+    ProcessInput();
+
     if (m_gameBoard)
         m_gameBoard->Update();
 
@@ -205,6 +217,10 @@ void GameEngineMain::RemovePendingEntities()
     }
 
     m_entitiesToRemove.clear();
+
+    CollisionManager::GetInstance()->ClearPendingRemove();
+
+
 }
 
 

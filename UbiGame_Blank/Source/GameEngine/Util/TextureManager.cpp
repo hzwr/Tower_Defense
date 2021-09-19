@@ -50,9 +50,12 @@ namespace TextureHelper
         switch (texture)
         {
         case  GameEngine::eTexture::Player:  return sf::Vector2f(32.f, 32.f);
+        case  GameEngine::eTexture::Eng:  return sf::Vector2f(32.f, 32.f);
         case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
-        case  GameEngine::eTexture::BG:	     return sf::Vector2f(500.f, 500.f);
+        case  GameEngine::eTexture::BG:	     return sf::Vector2f(1000.f, 800.f);
         case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);
+        case  GameEngine::eTexture::Tower2: return sf::Vector2f(40.f, 40.f);
+        case  GameEngine::eTexture::Tower1: return sf::Vector2f(40.f, 40.f);
         default:							 return sf::Vector2f(-1.f, -1.f);
         }
     }

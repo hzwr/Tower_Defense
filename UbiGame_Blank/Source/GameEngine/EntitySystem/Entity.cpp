@@ -94,12 +94,17 @@ void Entity::DestroyComponents()
 }
 
 
+
 void Entity::Update()
 {
+    // Must call entity specific update
+    EntityUpdate();
+
     for (auto component : m_components)
     {
         component->Update();
     }
+
 }
 
 sf::Vector2f Entity::GetPos() const
